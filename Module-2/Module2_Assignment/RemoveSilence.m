@@ -1,7 +1,7 @@
 function [t_start,t_end,y_nosilence] = RemoveSilence(y,threshold)
     
-    % find() samples that have amplitudes larger than the threshod
-    nonsilent_samples = % your code here
+    % find() samples that have amplitudes larger than the threshold
+    nonsilent_samples = find(y>threshold, 1, 'first'):find(y>threshold, 1, 'last');
     t_start=nonsilent_samples(1);
     t_end=nonsilent_samples(end);
     % only keep the signal between the first and last sample
