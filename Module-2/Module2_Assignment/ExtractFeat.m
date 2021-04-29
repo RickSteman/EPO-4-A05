@@ -15,6 +15,9 @@ function x_vec=ExtractFeat(y,Fs,L,ov,threshold)
     % find formants
     [~,frmtns] = FormantsEpo4(y_nosilence,Fs,L,ov);
     
+    % find Zero Crossing Rate
+    x10 = sum(abs(diff(y_nosilence>0)))/length(y_nosilence);
+    
     % features
     % mean, median, and variance of the pitch: 
     x1=mean(f0,'omitnan');
@@ -33,6 +36,6 @@ function x_vec=ExtractFeat(y,Fs,L,ov,threshold)
     x9=var(f1f2,'omitnan');
 
     % putting all the features together: size 1*15
-    x_vec=[x1,x2,x3,x4,x5,x6,x7,x8,x9]; 
+    x_vec=[x1,x2,x3,x4,x5,x6,x7,x8,x9,x10]; 
     
 end
