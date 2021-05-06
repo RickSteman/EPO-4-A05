@@ -30,14 +30,14 @@ y_test_pred= str2double(model.predict(x_test));
 % end
 
 if(y_test_pred == 1)
-    disp('Gijp');
+    disp('Bak');
 elseif(y_test_pred == 2)
-    disp('Stop');
+    disp('Gij');
 else
-    disp('Stuur');
+    disp('Stop');
 end
-
-for i=1:20
-    sound(BakArthur(:,i),Fs);
-    pause(1);
-end
+% 
+% for i=1:20
+%     sound(BakArthur(:,i),Fs);
+%     pause(1);
+% end

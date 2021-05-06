@@ -1,5 +1,6 @@
-SampleData=[BakArthur, BakLennert, BakPieter, BakRick, BakRuben, GijArthur, GijLennert, GijPieter, GijRick, GijRuben, StopArthur, StopLennert, StopPieter, StopRick, StopRuben, UurArthur, UurLennert, UurPieter, UurRick, UurRuben];
-%BakArthur, BakLennert, BakPieter, BakRick, BakRuben, 
+SampleData=[BakArthur, BakLennert, BakPieter, BakRick, BakRuben, GijArthur, GijLennert, GijPieter, GijRick, GijRuben, StopArthur, StopLennert, StopPieter, StopRick, StopRuben];
+%BakArthur, BakLennert, BakPieter, BakRick, BakRuben,
+%, UurArthur, UurLennert, UurPieter, UurRick, UurRuben
 num_samples=size(SampleData,2);
 num_feat=16;
 threshold= 0.1;
@@ -21,7 +22,7 @@ for i=1:size(SampleData,2)
     
 end
 
-Y=[ones(100,1);2.*ones(100,1);3.*ones(100,1);4.*ones(100,1)];
+Y=[ones(100,1);2.*ones(100,1);3.*ones(100,1)];
 % ;4.*ones(100,1)
 
 percent_train_split=70/100;
