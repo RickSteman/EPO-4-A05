@@ -1,9 +1,11 @@
-dataTotal=[UpPieter, GijpRuben, StopPieter, StopRuben, BakPieter, BakRuben, StuurPieter, StuurRuben];
-
-num_samples=size(dataTotal,2);
+SampleData=[BakArthur, BakLennert, BakPieter, BakRick, BakRuben, GijArthur, GijLennert, GijPieter, GijRick, GijRuben, StopArthur, StopLennert, StopPieter, StopRick, StopRuben, UurArthur, UurLennert, UurPieter, UurRick, UurRuben];
+%BakArthur, BakLennert, BakPieter, BakRick, BakRuben, 
+num_samples=size(SampleData,2);
 num_feat=16;
 threshold= 0.1;
-L= (20/1000)*8000; 
+Fs = 8000;
+L= (20/1000)*8000;
+
 
 % "ov": Length of the overlap (in samples)
 ov= L*0.5;
@@ -12,14 +14,15 @@ ov= L*0.5;
 X=zeros(num_samples, num_feat);
 
 % Extracting the features
-for i=1:size(dataTotal,2)
+for i=1:size(SampleData,2)
     
-    y = dataTotal(:,i);
+    y = SampleData(:,i);
     X(i,:)=ExtractFeat(y,Fs,L,ov,threshold);
     
 end
 
-Y=[ones(20,1);2.*ones(20,1);3.*ones(20,1);4.*ones(20,1)];
+Y=[ones(100,1);2.*ones(100,1);3.*ones(100,1);4.*ones(100,1)];
+% ;4.*ones(100,1)
 
 percent_train_split=70/100;
 [train_id,test_id]=train_test_split(Y,percent_train_split);
@@ -45,7 +48,7 @@ ylabel('Predictor Score'); hold off;
 
 rng default
 % number of trees
-nTrees = 30;
+nTrees = 20;
 
 % Train the TreeBagger (Random Forest).
 model = TreeBagger( nTrees,Xtrain,Ytrain ...
