@@ -23,22 +23,25 @@ figure('KeyPressFcn',@my_callback);
         switch event.Character
             case 'q'
                 ex=1;
-            case 30               % arrow direction
-                if(d~=2)
-                    d = 1;              %up d=1
-                end
-            case 31
-                if(d~=1)
-                    d = 2;              %down d=2
-                end
-            case 29
-                if(d~=4)
-                    d = 3;              %right d=3
-                end
-            case 28
-                if(d~=3)
-                    d = 4;              %left d=4
-                end
+            case 'space'
+                disp('hallo');
+%                 d = PredictVoice();
+%             case 30               % arrow direction
+%                 if(d~=2)
+%                     d = 1;              %up d=1
+%                 end
+%             case 31
+%                 if(d~=1)
+%                     d = 2;              %down d=2
+%                 end
+%             case 29
+%                 if(d~=4)
+%                     d = 3;              %right d=3
+%                 end
+%             case 28
+%                 if(d~=3)
+%                     d = 4;              %left d=4
+%                 end
         end
     end
 while (ex~=1)%runs the snake as long as q is not pressed
