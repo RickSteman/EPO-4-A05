@@ -22,7 +22,7 @@ for i=1:size(SampleData,2)
     
 end
 
-Y=[ones(100,1);2.*ones(100,1);3.*ones(100,1)];
+Y=[ones(100,1);2.*ones(100,1);3.*ones(100,1);];
 % ;4.*ones(100,1)
 
 percent_train_split=70/100;
