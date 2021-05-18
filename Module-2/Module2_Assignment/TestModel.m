@@ -1,3 +1,10 @@
+% Group A5 - EPO4 2021
+% Authors: Ruben Eland & Pieter Gommers
+% Description:
+% This file tests a model trained by our own dictionary. When the file is
+% run, the user will record a command and the model in the workspace will
+% predict the command. The prediction is then displayed to the user.
+
 threshold= 0.1;
 Fs = 8000;
 L= (20/1000)*8000;
@@ -36,8 +43,3 @@ elseif(y_test_pred == 2)
 else
     disp('Stop');
 end
-% 
-% for i=1:20
-%     sound(BakArthur(:,i),Fs);
-%     pause(1);
-% end

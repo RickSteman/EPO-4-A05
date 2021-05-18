@@ -1,3 +1,9 @@
+% Group A5 - EPO4 2021
+% Authors: Ruben Eland & Pieter Gommers
+% Description:
+% This function normalizes, removes silence, finds pitch, formants and zero
+% crossing rate, and returns all features in a matrix x_vec.
+
 function x_vec=ExtractFeat(y,Fs,L,ov,threshold)
     
     % normalize y
@@ -35,7 +41,7 @@ function x_vec=ExtractFeat(y,Fs,L,ov,threshold)
     x8=median(f1f2,'omitnan');
     x9=var(f1f2,'omitnan');
 
-    % putting all the features together: size 1*15
+    % putting all the features together: size 1*16
     x_vec=[x1,x2,x3,x4,x5,x6,x7,x8,x9,x10]; 
     
 end
