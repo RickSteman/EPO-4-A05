@@ -1,12 +1,12 @@
 %Authors: Ruben Eland and Pieter Gommers
 
 function h = channelEstimation(x, y, eps)
-    Ny = length(y); 
-    Nx = length(x); 
+    Ny = length(y);     %length of recorded signal
+    Nx = length(x);     %length of reference signal 
     L = Ny - Nx +1;
-    Y = fft(y);
-    X = fft([x; zeros(Ny - Nx,1)]);  
-    ii = find(abs(X) > eps*abs(X));
+    Y = fft(y);         %fft to get y in frequendy domain
+    X = fft([x; zeros(Ny - Nx,1)]); %fft to get x in frequency domain
+    ii = find(abs(X) > eps*max(abs(X))); %assuring the noise is filtered out
 
     for n = 1:length(X)
         for i = 1:length(ii)

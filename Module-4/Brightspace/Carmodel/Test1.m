@@ -3,14 +3,15 @@ EPOCommunications('init',['X' mat2str(pos)]); % initial position of car
 EPOCommunications('init','D[0;1]'); % initial direction of car
 
 P = [
-0;
-0;
-30]; % positions of mics
+0 0;
+25 50; 
+0 0]; % positions of mics
 
 EPOCommunications('init',['P' mat2str(P)]); % initialize positions of mics
 EPOCommunications('init','J40000'); % set sample rate of mics (Hz)
 EPOCommunications('init','N2000'); % set number of samples to return
 
+% kitt = EPOCommunications('open'); % create kitt! (hidden state)
 kitt = EPOCommunications('open','P'); % create kitt! now in public mode
 
 %EPOCommunications('transmit','S'); % request status string
