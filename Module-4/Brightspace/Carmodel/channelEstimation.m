@@ -3,7 +3,7 @@
 function h = channelEstimation(x, y, eps)
     Ny = length(y);     %length of recorded signal
     Nx = length(x);     %length of reference signal 
-    L = Ny - Nx +1;
+    % L = Ny - Nx +1;
     Y = fft(y);         %fft to get y in frequendy domain
     X = fft([x; zeros(Ny - Nx,1)]); %fft to get x in frequency domain
     ii = find(abs(X) > eps*max(abs(X))); %assuring the noise is filtered out
@@ -21,5 +21,7 @@ function h = channelEstimation(x, y, eps)
     G=G(:);
     H = Y./X;
     H = G.*H;
+    TF = isnan(H);
+    H(TF) = 0;
     h = ifftshift(ifft(H));
 end
