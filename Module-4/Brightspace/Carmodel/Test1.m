@@ -1,12 +1,21 @@
 clear all;
+<<<<<<< HEAD
+
+pos = [250;350];
+=======
 pos = [361;278];
+>>>>>>> c4b80faa86b6ad7a37aed6e16770914d4e6877ec
 EPOCommunications('init',['X' mat2str(pos)]); % initial position of car
 EPOCommunications('init','D[0;1]'); % initial direction of car
 
 P = [
 0 0 600 600 300;
 0 600 0 600 0; 
+<<<<<<< HEAD
+30 30 30 30 5]; % positions of mics
+=======
 30 30 30 30 30]; % positions of mics
+>>>>>>> c4b80faa86b6ad7a37aed6e16770914d4e6877ec
 
 EPOCommunications('init',['P' mat2str(P)]); % initialize positions of mics
 EPOCommunications('init','J40000'); % set sample rate of mics (Hz)

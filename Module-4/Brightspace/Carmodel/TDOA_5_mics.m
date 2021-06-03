@@ -13,7 +13,10 @@ h1 = channelEstimation(ref,y(:,1),eps);
 h2 = channelEstimation(ref,y(:,2),eps);
 h3 = channelEstimation(ref,y(:,3),eps);
 h4 = channelEstimation(ref,y(:,4),eps);
+<<<<<<< HEAD
+=======
 h5 = channelEstimation(ref,y(:,5),eps);
+>>>>>>> c4b80faa86b6ad7a37aed6e16770914d4e6877ec
 
 %Implementation of localization algorithm from Appendix B.1
 
@@ -23,20 +26,35 @@ firstpeak_3 = firstPeak(h3, 0.7);
 firstpeak_4 = firstPeak(h4, 0.7);
 firstpeak_5 = firstPeak(h5, 0.7);
 
+<<<<<<< HEAD
+n_delay_12 = (firstpeak_1 - firstpeak_2);
+=======
 n_delay_12 = firstpeak_1 - firstpeak_2;
+>>>>>>> c4b80faa86b6ad7a37aed6e16770914d4e6877ec
 t_delay_12 = (1/Fs)*(n_delay_12);
 r_12 = t_delay_12*34326;
 if r_12 == 0
     r_12 = 0.0001;
 end
 
+<<<<<<< HEAD
+n_delay_13 = (firstpeak_1 - firstpeak_3);
+=======
 n_delay_13 = firstpeak_1 - firstpeak_3;
+>>>>>>> c4b80faa86b6ad7a37aed6e16770914d4e6877ec
 t_delay_13 = (1/Fs)*(n_delay_13);
 r_13 = t_delay_13*34326;
 if r_13 == 0
     r_13 = 0.0001;
 end
 
+<<<<<<< HEAD
+n_delay_14 = (firstpeak_1 - firstpeak_4);
+t_delay_14 = (1/Fs)*(n_delay_14);
+r_14 = t_delay_14*34326;
+
+n_delay_23 = (firstpeak_2 - firstpeak_3);
+=======
 n_delay_14 = firstpeak_1 - firstpeak_4;
 t_delay_14 = (1/Fs)*(n_delay_14);
 r_14 = t_delay_14*34326;
@@ -52,12 +70,20 @@ if r_15 == 0
 end
 
 n_delay_23 = firstpeak_2 - firstpeak_3;
+>>>>>>> c4b80faa86b6ad7a37aed6e16770914d4e6877ec
 t_delay_23 = (1/Fs)*(n_delay_23);
 r_23 = t_delay_23*34326;
 if r_23 == 0
     r_23 = 0.0001;
 end
 
+<<<<<<< HEAD
+n_delay_24 = (firstpeak_2 - firstpeak_4);
+t_delay_24 = (1/Fs)*(n_delay_24);
+r_24 = t_delay_24*34326;
+
+n_delay_34 = (firstpeak_3 - firstpeak_4);
+=======
 n_delay_24 = firstpeak_2 - firstpeak_4;
 t_delay_24 = (1/Fs)*(n_delay_24);
 r_24 = t_delay_24*34326;
@@ -73,6 +99,7 @@ if r_25 == 0
 end
 
 n_delay_34 = firstpeak_3 - firstpeak_4;
+>>>>>>> c4b80faa86b6ad7a37aed6e16770914d4e6877ec
 t_delay_34 = (1/Fs)*(n_delay_34);
 r_34 = t_delay_34*34326;
 if r_34 == 0
@@ -123,8 +150,19 @@ b = [r_12^2-(norm(x1))^2+(norm(x2))^2;
     r_35^2-(norm(x3))^2+(norm(x5))^2;
     r_45^2-(norm(x4))^2+(norm(x5))^2];
 
+<<<<<<< HEAD
+A_t = (A.')*A;
+
+if(n_delay_12==0)
+    
+    
+end
+
+y_out = (A_t)\(A.')*b;
+=======
 A_t = inv((A.')*A);
 y_out = (A_t)*(A.')*b;
+>>>>>>> c4b80faa86b6ad7a37aed6e16770914d4e6877ec
 
 x = zeros(2,1);
 
@@ -133,6 +171,30 @@ x(2) = y_out(2);
 d2 = y_out(3);
 d3 = y_out(4);
 d4 = y_out(5);
+<<<<<<< HEAD
+
+t = 1/Fs*(0:1:length(y)-1);
+ 
+subplot(4,1,1)
+plot(t,h1,'DisplayName', 'Channel estimation of mic 1')
+X1 = xline(t(firstpeak_1),'--r','DisplayName','Peak in channel estimation of mic 1');
+% legend('show');
+ 
+subplot(4,1,2)
+plot(t,h2,'DisplayName', 'Channel estimation of mic 2')
+X2 = xline(t(firstpeak_2),'--r','DisplayName','Peak in channel estimation of mic 2');
+% legend('show');
+ 
+subplot(4,1,3)
+plot(t,h3,'DisplayName', 'Channel estimation of mic 3')
+X3 = xline(t(firstpeak_3),'--r','DisplayName','Peak in channel estimation of mic 3');
+% legend('show');
+ 
+subplot(4,1,4)
+plot(t,h4,'DisplayName', 'Channel estimation of mic 4')
+X4 = xline(t(firstpeak_4),'--r','DisplayName','Peak in channel estimation of mic 4');
+% legend('show');
+=======
 d5 = y_out(6);
 
 t = 1/Fs*(0:1:length(y)-1);
@@ -161,3 +223,4 @@ subplot(5,1,5)
 plot(t,h5,'DisplayName', 'Channel estimation of mic 5')
 X5 = xline(t(firstpeak_5),'--r','DisplayName','Peak in channel estimation of mic 5');
 % legend('show');
+>>>>>>> c4b80faa86b6ad7a37aed6e16770914d4e6877ec
