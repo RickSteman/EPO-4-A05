@@ -1,5 +1,5 @@
 clear all;
-pos = [361;278];
+pos = [5;5];
 EPOCommunications('init',['X' mat2str(pos)]); % initial position of car
 EPOCommunications('init','D[0;1]'); % initial direction of car
 
@@ -22,7 +22,7 @@ EPOCommunications('transmit', 'A1'); % switch on audio beacon
 
 EPOCommunications('transmit', 'B5000'); % set the bit frequency
 EPOCommunications('transmit', 'F15000');% set the carrier frequency
-EPOCommunications('transmit', 'R2500'); % set the repetition count
+EPOCommunications('transmit', 'R5000'); % set the repetition count
 EPOCommunications('transmit', 'C0xE04869A5'); % set the audio code
 
 %E04869A5
