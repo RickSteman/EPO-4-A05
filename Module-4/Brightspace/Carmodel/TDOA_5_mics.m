@@ -17,11 +17,11 @@ h5 = channelEstimation(ref,y(:,5),eps);
 
 %Implementation of localization algorithm from Appendix B.1
 
-firstpeak_1 = firstPeak(h1, 0.9);
-firstpeak_2 = firstPeak(h2, 0.9);
-firstpeak_3 = firstPeak(h3, 0.9);
-firstpeak_4 = firstPeak(h4, 0.9);
-firstpeak_5 = firstPeak(h5, 0.9);
+firstpeak_1 = firstPeak(h1, 0.7);
+firstpeak_2 = firstPeak(h2, 0.7);
+firstpeak_3 = firstPeak(h3, 0.7);
+firstpeak_4 = firstPeak(h4, 0.7);
+firstpeak_5 = firstPeak(h5, 0.7);
 
 n_delay_12 = firstpeak_1 - firstpeak_2;
 t_delay_12 = (1/Fs)*(n_delay_12);
@@ -134,10 +134,6 @@ d2 = y_out(3);
 d3 = y_out(4);
 d4 = y_out(5);
 d5 = y_out(6);
-
-%SRD-LS algorithm
-
-
 
 t = 1/Fs*(0:1:length(y)-1);
 
