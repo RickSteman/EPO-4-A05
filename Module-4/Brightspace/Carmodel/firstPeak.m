@@ -5,3 +5,5 @@ function peak = firstPeak(x, threshold)
     allpeaks = find(pks>threshold*max(x));
     peak = locs(allpeaks(1));
 end
+
+% peakdistance & peakheight enzo

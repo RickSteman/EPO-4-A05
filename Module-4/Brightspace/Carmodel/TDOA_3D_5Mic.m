@@ -2,17 +2,12 @@
 %Date: June 2021
 
 eps = 0.15;
-peak_eps = 0.7;
 Fs = 40000;
 
 %Recording and estimating the 5-channel data
 
 y = datagen();
-%ref = refsignal_new(20000,5000,2000,'92340f0f',Fs);
-%ref = refsignal_new(20000,5000,2000,'F000000F',Fs);
-% refsignal nieuw
-load('reference.mat');
-ref = reference;
+ref = refsignal_new(20000,5000,2000,'E04869A5',Fs);
 
 h1 = channelEstimation(ref,y(:,1),eps);
 h2 = channelEstimation(ref,y(:,2),eps);
@@ -20,13 +15,13 @@ h3 = channelEstimation(ref,y(:,3),eps);
 h4 = channelEstimation(ref,y(:,4),eps);
 h5 = channelEstimation(ref,y(:,5),eps);
 
-% Implementation of localization algorithm from Appendix B.1
+%Implementation of localization algorithm from Appendix B.1
 
-firstpeak_1 = firstPeak(h1, peak_eps);
-firstpeak_2 = firstPeak(h2, peak_eps);
-firstpeak_3 = firstPeak(h3, peak_eps);
-firstpeak_4 = firstPeak(h4, peak_eps);
-firstpeak_5 = firstPeak(h5, peak_eps);
+firstpeak_1 = firstPeak(h1, 0.6);
+firstpeak_2 = firstPeak(h2, 0.6);
+firstpeak_3 = firstPeak(h3, 0.6);
+firstpeak_4 = firstPeak(h4, 0.6);
+firstpeak_5 = firstPeak(h5, 0.6);
 
 n_delay_12 = firstpeak_1 - firstpeak_2;
 t_delay_12 = (1/Fs)*(n_delay_12);
@@ -100,11 +95,11 @@ end
 
 %positions of the mics
 
-x1 = [0; 0];
-x2 = [0; 600];
-x3 = [600; 0];
-x4 = [600; 600];
-x5 = [300; 0];
+x1 = [0; 0; 20];
+x2 = [0; 600; 20];
+x3 = [600; 0; 20];
+x4 = [600; 600; 20];
+x5 = [300; 0; 70];
 
 A = [2*((x2-x1).') -2*r_12 0 0 0;
     2*((x3-x1).') 0 -2*r_13 0 0;
@@ -139,6 +134,7 @@ d2 = y_out(3);
 d3 = y_out(4);
 d4 = y_out(5);
 d5 = y_out(6);
+d6 = y_out(7);
 
 t = 1/Fs*(0:1:length(y)-1);
 

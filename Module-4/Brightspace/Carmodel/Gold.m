@@ -6,3 +6,8 @@ goldseq = comm.GoldSequence('FirstPolynomial','x^5+x^2+1',...
 x = goldseq();
 B = x.';
 hexVal = binaryVectorToHex(B);
+
+subplot(2,1,1)
+autocorr(x)
+subplot(2,1,2)
+parcorr(x)
